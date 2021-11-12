@@ -167,17 +167,16 @@ const Home = (props: HomeProps) => {
 
   return (
     <main>
+      {wallet && <h1>Billionaire Bunnies Club</h1>}
+      {wallet && <img src="https://www.arweave.net/AhDC8GxCong84Z7TQkZHmVNfVxfD2HM9a-HORbC47G4?ext=png" alt=""></img>}
+      {wallet && <h2>| Total Supply: {itemsAvailable} | Minted: {itemsRedeemed} | Remaining: {itemsRemaining} | </h2>}
+      {wallet && <p>Mint Price: 0.2 SOL</p>}
       {wallet && (
-        <p>Wallet {shortenAddress(wallet.publicKey.toBase58() || "")}</p>
+        <p>Wallet: {shortenAddress(wallet.publicKey.toBase58() || "")}</p>
       )}
 
       {wallet && <p>Balance: {(balance || 0).toLocaleString()} SOL</p>}
 
-      {wallet && <p>Total Available: {itemsAvailable}</p>}
-
-      {wallet && <p>Redeemed: {itemsRedeemed}</p>}
-
-      {wallet && <p>Remaining: {itemsRemaining}</p>}
 
       <MintContainer>
         {!wallet ? (
